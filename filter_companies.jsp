@@ -30,9 +30,18 @@
       <a href="about.jsp" class="w3-bar-item w3-button">About</a>
       <a href="resources.jsp" class="w3-bar-item w3-button">Resources</a>
       <a href="filter_companies.jsp" class="w3-bar-item w3-button">Companies</a>
-      <a href="#" class="w3-bar-item w3-button"><%String name=(String)session.getAttribute("user");  
-out.print(name);  %></a>
-      <a href="logout.jsp" class="w3-bar-item w3-button">Logout</a>
+      <%if(session.getAttribute("user") == null)
+        {%>
+            <a href="signin.html" class="w3-bar-item w3-button">Sign-in</a>
+      <%
+        }
+        else
+        {%>
+            <a href="#" class="w3-bar-item w3-button"><%String name=(String)session.getAttribute("user");  
+out.print(name);%></a>
+            <a href="logout.jsp" class="w3-bar-item w3-button">Logout</a>
+            <%}%>
+
       
     </div>
   </div>

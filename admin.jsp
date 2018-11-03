@@ -7,27 +7,25 @@
 
  
         <%
-            String sid="";
-            String spasswd="";
+            String aid="";
+            String apasswd="";
                     
-            String id=request.getParameter("Username");
-            String passd=request.getParameter("Password");           
-          
+            String id=request.getParameter("aname");
+            String passd=request.getParameter("apass");           
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/placeinfo","root","123456");
             
-            String q="select password from student where username=?";
+            String q="select pass from admin where uadmin=?";
              PreparedStatement pss=con.prepareStatement(q);
              pss.setString(1,id);
              
 
              ResultSet r =pss.executeQuery();
            
-             out.print(r);
              if(r.next())
              {
-                spasswd=r.getString(1);                 
-                if(spasswd.equals(passd))
+                apasswd=r.getString(1);                 
+                if(apasswd.equals(passd))
                 {
                     session = request.getSession();
                     session.setAttribute("user",id);
@@ -35,7 +33,7 @@
               }
               else
               {
-                  response.sendRedirect(request.getContextPath() + "/signin.html");
+                  response.sendRedirect(request.getContextPath() + "/admin.html");
               }
              }
                 %>
