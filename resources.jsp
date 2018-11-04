@@ -1,14 +1,3 @@
-<%-- 
-    Document   : resource
-    Created on : 3 Nov, 2018, 11:02:47 PM
-    Author     : monica
---%>
-
-<%-- 
-    Document   : main
-    Created on : Oct 9, 2018, 9:30:11 PM
-    Author     : User
---%>
 
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>

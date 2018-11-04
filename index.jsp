@@ -36,7 +36,7 @@
     <div class="w3-right w3-large">
       <a href="about.jsp" class="w3-bar-item w3-button">About</a>
       <a href="resources.jsp" class="w3-bar-item w3-button">Resources</a>
-      <a href="filter_companies.jsp" class="w3-bar-item w3-button">Companies</a>
+      <a href="companies.jsp" class="w3-bar-item w3-button">Companies</a>
       <%if(session.getAttribute("user") == null)
         {%>
             <div class="w3-dropdown-hover w3-hide-small">
