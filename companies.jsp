@@ -12,17 +12,23 @@
 
 <!DOCTYPE html>
 <html>
+<head>
 <title>Guide</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style>
-  body {font-family: "Lato", sans-serif}
-  .mySlides {display: none}
-  </style>
+</head>
   <body>
+      <style>
+        body {font-family: "Lato", sans-serif}
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+
+        }
+    </style>
 
 <!-- Navbar -->
 <div class="w3-top">
@@ -69,16 +75,9 @@ out.print(name);%></a>
        
                                                   ResultSet r=p.executeQuery();%><br>
                                                   
-  <center>
-<style>
-
-table, th, td {
-    border: 1px solid black;
-    text-align: center;
-
-}
-</style>
-             <table>
+<center>
+    <br><br>
+  <table>
   <tr>
     <th>Company Name</th>
     <th>     Job Profile </th>
@@ -101,9 +100,9 @@ table, th, td {
     <td> <%=ctc%> </td>
     <td> <%=status%> </td>
   </tr>       
+  
  <% }
-    %>     
-    
+    %>        
     
        
 <style>
@@ -112,11 +111,21 @@ table, th, td {
     text-align: center;
 }
 </style>
-<br><br>
-<br>
+ <br><br>
+ </table>
 
-</center>
+    <%if(session.getAttribute("user") == null)
+        {%>
+            <br>
+            <button onclick="alert('Please Login');" class="w3-btn w3-blue">Filter</button>
+      <%
+        }
+        else
+        {%>
+            <br>
+            <button onclick="location.href = '/Placeinfo/filter.html';" class="w3-btn w3-blue">Filter</button>
+      <%}%>
 
-
+</center>    
 </body>
 </html>
