@@ -105,12 +105,7 @@ out.print(name);%></a>
     %>        
     
        
-<style>
-table, th, td {
-    border: 1px solid black;
-    text-align: center;
-}
-</style>
+
  <br><br>
  </table>
 

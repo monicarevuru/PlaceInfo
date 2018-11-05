@@ -14,7 +14,12 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
-  body {font-family: "Lato", sans-serif}
+   body {font-family: "Lato", sans-serif}
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+
+        }
   </style>
   <body>
 
@@ -53,11 +58,40 @@ out.print(name);%></a>
     </div>
   </div>
 </div>
+<%
+            Class.forName("com.mysql.jdbc.Driver");
+                        Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/placeinfo","root","123456");
+                                     String qp="select * from resources";
+                                                  PreparedStatement p=con.prepareStatement(qp);
+       
+                                                  ResultSet r=p.executeQuery();%><br>
+ <center>
+    <br><br>
+    <br><br>
+  <table>
+  <tr>
+    <th>Company Name</th>
+    <th>     URL </th>
+    
+  </tr>
+   <%
+             while(r.next())
+             {
+                 String cname = r.getString(1);
+                   String url = r.getString(2);
+                   
+   %>
+  <tr>
+    <td><%=cname%></td>
+   <td>    <a href="<%=url%>">Click Here</a></td>
+  </tr>       
+  
+ <% }
+%>
+  </table>
+ </center>
 
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-</footer>
 
 </body>
 </html>

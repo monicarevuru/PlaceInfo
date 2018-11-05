@@ -15,49 +15,49 @@
   <div class="container">
     <h2>Apply Filters</h2>
     <br>
-    <form class="w3-container w3-card-4" style ="width:75% "  action="companies.jsp" method="post">
+    <form class="w3-container w3-card-4" style ="width:75% "  action="apply.jsp" method="post">
         <div class="row">
             <div class="column">
                     <h3>Job Profile</h3>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="jobp" value="Software Developer">
                     <label> Software Developer </label>
                     <br>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="jobp" value="Tester">
                     <label> Tester </label>
                     <br>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="jobp" value="Data Analyst">
                     <label>Data Analyst </label>
                     <br>
-                    <input class="w3-check" type="checkbox">
+                    <input class="w3-check" type="checkbox" name="jobp" value="Network Engineer">
                     <label> Network Engineer </label>
                     <br>
 
             </div>
             <div class="column">
                     <h3>Status</h3>
-                    <input class="w3-radio" type="radio" name="status" value="yettocome">
+                    <input class="w3-radio" type="radio" name="status" value="yettocome" required="required">
                     <label> Yet to come</label>
                     <br>
-                    <input class="w3-radio" type="radio" name="status" value="active">
+                    <input class="w3-radio" type="radio" name="status" value="active" required="required">
                     <label> Active</label>
                     <br>
-                    <input class="w3-radio" type="radio" name="status" value="done">
+                    <input class="w3-radio" type="radio" name="status" value="done" required="required">
                     <label> Done</label>
                     <br>
       
             </div>
             <div class="column">
                     <h3>CTC</h3>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="ctc[]" value="ctc1">
                     <label> 1 l.p.a - 3 l.p.a </label>
                     <br>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="ctc[]" value="ctc2">
                     <label> 3 l.p.a - 7 l.p.a </label>
                     <br>
-                    <input class="w3-check" type="checkbox" >
+                    <input class="w3-check" type="checkbox" name="ctc[]" value="ctc3">
                     <label>7 l.p.a - 10 l.p.a </label>
                     <br>
-                    <input class="w3-check" type="checkbox">
+                    <input class="w3-check" type="checkbox" name="ctc[]" value="ctc4">
                     <label> above 10 l.p.a </label>
                     <br>
             </div>
