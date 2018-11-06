@@ -83,7 +83,7 @@ out.print(name);%></a>
    %>
   <tr>
     <td><%=cname%></td>
-   <td>    <a href="<%=url%>">Click Here</a></td>
+    <td><a href="<%=url%>" target="_blank">Click Here</a></td>
   </tr>       
   
  <% }
