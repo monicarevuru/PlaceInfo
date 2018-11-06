@@ -62,8 +62,8 @@ out.print(name);%></a>
         <%
             String[] jp=request.getParameterValues("jobp");
             String stat =request.getParameter("status");
-            //String[] ctc = request.getParameterValues("ctc");
-
+            int max = Integer.parseInt(request.getParameter("ctc-max"));
+            int min = Integer.parseInt(request.getParameter("ctc-min"));
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/placeinfo","root","123456");
         %>
@@ -80,56 +80,58 @@ out.print(name);%></a>
            
             PreparedStatement ps;
             String q = "";
-            if(request.getParameterValues("jobp") != null || request.getParameterValues("ctc")!= null)
-            {
                 if(jp.length == 4)
                 {
-                    q = "select * from companies where jp in(?,?,?,?) and status = ? ";
+                    q = "select * from companies where jp in(?,?,?,?) and status = ? and ctc >= ? and ctc <= ?";
                     ps =con.prepareStatement(q);
                     ps.setString(1,jp[0]);
                     ps.setString(2,jp[1]);
                     ps.setString(3,jp[2]);
                     ps.setString(4,jp[3]);
                     ps.setString(5,stat);
+                    ps.setInt(6,min);
+                    ps.setInt(7,max);
                     
                 }
                 else if(jp.length == 3)
                 {
-                    q = "select * from companies where jp in( ?,?,?) and status = 'stat' ";
+                    q = "select * from companies where jp in( ?,?,?) and status = 'stat' and ctc >= ? and ctc <= ?";
                     ps =con.prepareStatement(q);
                     ps.setString(1,jp[0]);
                     ps.setString(2,jp[1]);
                     ps.setString(3,jp[2]);
                     ps.setString(4,stat);
+                    ps.setInt(5,min);
+                    ps.setInt(6,max);
                 }
                 else if(jp.length == 2)
                 {
-                    q = "select * from companies where jp in(?,?) and status = ? ";
+                    q = "select * from companies where jp in(?,?) and status = ?and ctc >= ? and ctc <= ?";
                     ps =con.prepareStatement(q);
                     ps.setString(1,jp[0]);
                     ps.setString(2,jp[1]);
                     ps.setString(3,stat);
+                    ps.setInt(4,min);
+                    ps.setInt(5,max);
                 }
                 else if(jp.length == 1)
                 {
-                    q = "select * from companies where jp in(?) and status = ? ";
+                    q = "select * from companies where jp in(?) and status = ? and ctc >= ? and ctc <= ? ";
                     ps =con.prepareStatement(q);
                     ps.setString(1,jp[0]);
                     ps.setString(2,stat);
+                    ps.setInt(3,min);
+                    ps.setInt(4,max);
                 }
                 else
                 {
-                    q = "select * from companies where status = ? ";
+                    q = "select * from companies where status = ? and ctc >= ? and ctc <= ?";
                     ps =con.prepareStatement(q);
                     ps.setString(1,stat);
+                    ps.setInt(2,min);
+                    ps.setInt(3,max);
                 }
-            }
-            else
-            {
-                q = "select * from companies where status = ? ";
-                ps =con.prepareStatement(q);
-                ps.setString(1,stat);
-            }
+            
                 ResultSet r =ps.executeQuery();
                 while(r.next())
                 {
