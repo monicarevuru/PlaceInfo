@@ -80,6 +80,8 @@ out.print(name);%></a>
            
             PreparedStatement ps;
             String q = "";
+            if(request.getParameterValues("jobp") != null)
+            {
                 if(jp.length == 4)
                 {
                     q = "select * from companies where jp in(?,?,?,?) and status = ? and ctc >= ? and ctc <= ?";
@@ -131,6 +133,15 @@ out.print(name);%></a>
                     ps.setInt(2,min);
                     ps.setInt(3,max);
                 }
+            }
+            else
+            {
+                q = "select * from companies where status=? and ctc >= ? and ctc <= ?";
+                ps = con.prepareStatement(q);
+                ps.setString(1,stat);
+                ps.setInt(2,min);
+                ps.setInt(3,max);
+            }
             
                 ResultSet r =ps.executeQuery();
                 while(r.next())

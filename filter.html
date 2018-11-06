@@ -38,9 +38,12 @@
                 <h3>CTC</h3>
                 <br>
                 <label for="ctc-min">MIN</label>
-                <input type="range" name="ctc-min" id="ctc-min" min="300000" max="2500000" value="300000" class="slider">
+                <input type="text" id="t1" value="">
+                <input type="range" name="ctc-min" min="300000" max="2500000" value="300000" class="slider" onchange="update1(this.value);">
+
+                <input type="range" name="ctc-max" min="300000" max="2500000" value="2500000"class="slider" onchange="update2(this.value);">
+                <input type="text" id="t2" value="">
                 <label for="ctc-max">MAX</label>
-                <input type="range" name="ctc-max" id="ctc-max" min="300000" max="2500000" value="2500000"class="slider">
                 <br>
             </div>
             <div class="column w3-text">
@@ -70,6 +73,14 @@
     </div>
 
 </center>
+<script>
+function update1(val1) {
+    document.getElementById('t1').value = val1;
+}
+function update2(val2) {
+    document.getElementById('t2').value = val2;
+}
+</script>
 </body>
 
 <style>
