@@ -30,10 +30,24 @@
                     session = request.getSession();
                     session.setAttribute("user",id);
                     response.sendRedirect(request.getContextPath() + "/index.jsp");
-              }
-              else
-              {
-                  response.sendRedirect(request.getContextPath() + "/admin.html");
-              }
-             }
+                }
+                else
+                { 
                 %>
+                <script>
+                    alert("Username or Password incorrect");
+                    location.href = "/Placeinfo/admin.html";
+                </script>
+                <%
+                  //response.sendRedirect(request.getContextPath() + "/admin.html");}
+             }
+        }
+        else{
+                %>
+                <script>
+                    alert("Username or Password in correct");
+                    location.href = "/Placeinfo/signin.html";
+                </script>
+                <%
+}
+        %>
