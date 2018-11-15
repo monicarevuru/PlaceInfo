@@ -28,25 +28,15 @@
   <div class="w3-bar w3-black w3-padding-large">
 
     <div class="w3-display-left w3-small" style="padding:16px 16px">
-    	<a href="index.jsp" class="w3-bar-item w3-padding-large"><img src="./images/logo.png" style="width:170px"></a>
-        
+    	<a href="adminindex.jsp" class="w3-bar-item w3-padding-large"><img src="./images/logo.png" style="width:170px"></a>
     </div>
     <div class="w3-display-middle w3-large">
-    	<a href="index.jsp" class="w3-bar-item w3-padding-large"><b>PlaceInfo</b></a>
+    	<a href="adminindex.jsp" class="w3-bar-item w3-padding-large"><b>PlaceInfo</b></a>
     </div>
     <div class="w3-right w3-large">
-         <%if(session.getAttribute("auser") == null)
-        {%>
-        <a href="about.jsp" class="w3-bar-item w3-button">About</a>
-      <a href="resources.jsp" class="w3-bar-item w3-button">Resources</a>
-      <a href="companies.jsp" class="w3-bar-item w3-button">Companies</a>
-      <%}
-      else
-        {%>
       <a href="adminresources.jsp" class="w3-bar-item w3-button">Resources</a>
       <a href="admincompanies.jsp" class="w3-bar-item w3-button">Companies</a>
-      <%}%>
-      <%if(session.getAttribute("user") == null&& session.getAttribute("auser")==null)
+      <%if(session.getAttribute("auser") == null)
         {%>
             <div class="w3-dropdown-hover w3-hide-small">
             <button class="w3-padding-large w3-button" title="siginin">Sign in <i class="fa fa-caret-down"></i></button>     
@@ -57,16 +47,10 @@
             </div>
       <%
         }
-        else if(session.getAttribute("auser")!=null)
-        {%>
-        <a href="#" class="w3-bar-item w3-button"><%String name=(String)session.getAttribute("auser");  
-        out.print(name);%></a>
-            <a href="logout.jsp" class="w3-bar-item w3-button">Logout</a>
-            <%}
         else
         {%>
-            <a href="#" class="w3-bar-item w3-button"><%String name=(String)session.getAttribute("user");  
-            out.print(name);%></a>
+            <a href="#" class="w3-bar-item w3-button"><%String name=(String)session.getAttribute("auser");  
+out.print(name);%></a>
             <a href="logout.jsp" class="w3-bar-item w3-button">Logout</a>
             <%}%>
 
